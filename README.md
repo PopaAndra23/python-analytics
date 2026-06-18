@@ -1,34 +1,39 @@
-# Operational Analytics & Product Portfolio Management (Python)
-
 ## 📌 Project Overview
-This project establishes a data cleaning and exploratory data analysis (EDA) pipeline using Python to evaluate product performance and inventory transaction patterns for **AdventureWorks**. Moving away from theoretical exercises, the analysis is structured around real-world business tickets simulated from cross-department requests (Finance, Operations, Strategy, and Product Management).
+The goal of this project was to analyze data from two files: `products_aw.csv` (product catalog) and `transactions_aw.csv` (stock transactions). 
+
+Instead of just doing abstract exercises, the project simulates real business requests (called "Tickets") from different store departments like Finance, Operations, Strategy, and Product Management.
 
 ---
 
-## 🛠️ Tech Stack & Libraries Used
-* **Programming Language:** Python
-* **Data Manipulation:** `pandas`
-* **Data Visualization:** `matplotlib`
+## 🛠️ Tools Used
+* **Language:** Python
+* **Data Libraries:** `pandas` and `numpy`
+* **Charts:** `matplotlib`
 * **Environment:** Jupyter Notebook (`.ipynb`)
 
 ---
 
-## 🔧 Operational Pipeline & Data Architecture
+##  What I Did in This Project
 
-### 1. Data Cleaning & Standardization (Mandatory Layer)
-* Inspected dataset shapes, data types, and structural gaps across retail sheets (`products_aw.csv` and `transactions_aw.csv`).
-* Implemented structural data cleanups: handled missing values, removed trailing and leading spaces from text columns (`.str.strip()`), and re-mapped system codes into descriptive names (e.g., transforming product lines into *Road, Mountain, Standard, Touring*).
-* Parsed date strings into active `datetime` objects to ensure precise time-series calculations.
+### 1. Preparing and Cleaning the Data
+* Checked the dataset sizes and looked at the data types to make sure everything was correct.
+* Fixed string columns by removing unnecessary empty spaces using `.str.strip()`.
+* Converted date text columns into proper Python `datetime` objects so I could do time-based analysis.
+* Mapped system abbreviations into friendly names (like changing product codes into *Road, Mountain, Standard, or Touring*).
 
-### 2. Analytical Modules & Departmental Reports
-
-* **Product Portfolio Matrix (Product Management Ticket - PE01):** Filtered the inventory dataset to isolate completed finished goods with valid retail pricing tiers. Computed median prices and evaluated price variance across product categories to optimize catalog distribution.
-* **Gross Margin & Profitability Audit (Finance Ticket - PE02):** Created custom reusable functions to calculate Gross Profit Margin (%) across categories. Isolated margin trends and performed anomaly detection to flag high-volume items with critical profit margins under 10%.
-* **Transaction Velocity Analysis (Operations Ticket - PE03):** Aggregated operational transaction types (Sales - S, Purchases - P, Work orders/Production - W) to determine their percentage distribution. Identified and ranked the Top 10 high-velocity products based on transaction volume.
-* **Time-Series Horizon Trends (Strategy & Planning Ticket - PE04):** Extracted granular time components (months and days of the week) from transaction records. Converted numerical days into proper calendar day names (Monday, Tuesday...) to locate peak operational capacity and supply chain spikes.
+### 2. Answering Business Requests (Tickets)
+* **Product Catalog (Ticket PE01):** Filtered the data to look only at active finished goods. I calculated the median prices and checked how prices vary across different product categories.
+* **Profit & Finance (Ticket PE02):** Created custom Python functions (`def`) to automatically calculate the Gross Profit Margin (%). I also searched for products that have a critical profit margin of less than 10%.
+* **Transactions & Sales (Ticket PE03):** Grouped data by transaction types (Sales, Purchases, Production) to see their percentages. I also found the Top 10 most active products with the highest transaction counts.
+* **Time Trends (Ticket PE04):** Extracted the months and days of the week from dates. I converted day numbers into actual names (Monday, Tuesday...) and found out which months and weekdays have the most activity.
 
 ---
 
-## 💡 Engineering Best Practices Applied
-* **DRY Principle (Don't Repeat Yourself):** All financial metrics, margins, and time-series conversions are wrapped inside clean, reusable Python functions (`def`) adhering to custom corporate naming conventions (`EXX_functionName`).
-* **Business-Driven Interpretations:** Rather than just outputting raw code blocks, every visual chart generated in the notebook is accompanied by Markdown cells translating the statistical data into actionable economic insights for management.
+## 💡 Good Practices Applied
+* **Reusable Code:** I used standard Python functions (`def`) for calculations so I didn't have to rewrite the same code multiple times (following the DRY - Don't Repeat Yourself principle).
+* **Business Conclusions:** Inside the notebook, every chart and calculation is followed by a short note written in Markdown explaining what the data actually means for a manager.
+
+---
+
+## 📂 Repository Structure
+* `Proiect_Python_AdventureWorks.ipynb`: The complete Jupyter Notebook with all my Python code, generated charts, and text explanations visible.
